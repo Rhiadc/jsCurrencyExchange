@@ -22,17 +22,11 @@ const getdata = async () => {
 
 
 getdata()
-/* const getdataUpdate = async () =>{
-  const response = await fetch(url)
-  const data = await response.json()
-  dataObj = data
-  return data
-} */
+
 
 currencyOneTimes.addEventListener('input', event => {
 
   valueUni = event.target.value
-  //console.log(dataObj.conversion_rates[valueOne], dataObj.conversion_rates[valueTwo])
   if (valueOne === "USD") {
     let attValue = valueUni * dataObj.conversion_rates[valueTwo]
     convertedValueContainer.innerHTML = attValue.toFixed(2)
@@ -68,15 +62,13 @@ let showSelected = (selectValue) => {
     if (item.selected) {
       if (selectValue == '#selectTwo') {
         valueTwo = item.getAttribute('value')
-        console.log("teste", dataObj.conversion_rates['GBP'], dataObj.conversion_rates['USD'], 'valueTwo: ', dataObj.conversion_rates[valueTwo], 'valueOne: ', dataObj.conversion_rates[valueOne] )
         let attValue = valueUni * (dataObj.conversion_rates[valueTwo] / dataObj.conversion_rates[valueOne])
         convertedValueContainer.innerHTML = attValue.toFixed(2)
       } if (selectValue == '#selectOne') {
-        valueOne = item.getAttribute('value')
-        console.log('ts ')
-        let attValue = valueUni * (dataObj.conversion_rates[valueTwo] / dataObj.conversion_rates[valueOne])
-        convertedValueContainer.innerHTML = attValue.toFixed(2)
-
+          valueOne = item.getAttribute('value')
+          console.log('ts ')
+          let attValue = valueUni * (dataObj.conversion_rates[valueTwo] / dataObj.conversion_rates[valueOne])
+          convertedValueContainer.innerHTML = attValue.toFixed(2)
 
       }
     }
